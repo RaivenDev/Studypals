@@ -12,6 +12,8 @@ from flask_jwt_extended import JWTManager
 
 from config import Config
 
+from flask_cors import CORS
+
 db = SQLAlchemy()
 
 # Criamos uma instância da classe Migrate
@@ -37,7 +39,7 @@ api = SpecTree(
 
 def create_app(ConfigClass):
     app = Flask(__name__)
-
+    CORS(app, supports_credentials=True)
     app.config.from_object(ConfigClass)
     
     # Inicializamos com as configurações da aplicação
