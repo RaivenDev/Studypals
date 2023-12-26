@@ -20,7 +20,7 @@ from flask_jwt_extended import jwt_required, current_user
 user_controller = Blueprint("user_controller", __name__, url_prefix="/users")
 
 
-@user_controller.get("/", methods=["GET"])
+@user_controller.get("/")
 @api.validate(resp=Response(HTTP_200=UserResponseList), tags=["users"])
 @jwt_required()
 def get_users():
@@ -123,7 +123,7 @@ def put_user(user_id):
     return {"msg": "User was updated."}, 200
 
 
-@user_controller.delete("/<int:user_id>", methods=["DELETE"])
+@user_controller.delete("/<int:user_id>")
 @api.validate(resp=Response(HTTP_200=DefaultResponse, HTTP_404=DefaultResponse), tags=["users"])
 @jwt_required()
 def delete_user(user_id):
@@ -142,7 +142,7 @@ def delete_user(user_id):
     return {"msg": "User deleted from the database."}, 200
 
 
-@user_controller.route("/me", methods=["GET"])
+@user_controller.route("/me")
 @api.validate(resp=Response(HTTP_200=UserResponse), tags=["users"])
 @jwt_required()
 def me():
