@@ -35,10 +35,10 @@ api = SpecTree(
     security={"api_key": []},
 )
 
-def create_app():
+def create_app(ConfigClass):
     app = Flask(__name__)
 
-    app.config.from_object(Config)
+    app.config.from_object(ConfigClass)
     
     # Inicializamos com as configurações da aplicação
     jwt.init_app(app)
