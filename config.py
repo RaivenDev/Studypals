@@ -18,7 +18,7 @@ class Config:
     @staticmethod
     def init_app(app):
         pass
-
+            
 
 # Configuração para Desenvolvimento
 class DevelopmentConfig(Config):

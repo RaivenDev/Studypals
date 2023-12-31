@@ -53,12 +53,14 @@ from utils.responses import OrmBase
 class UserResponse(OrmBase):
     username: str
     email: str
+    country: str
     birthdate: datetime = None
     created_at: datetime
     
 class UserEdit(BaseModel):
     username: str
     email: str
+    country: str
     birthdate: datetime = None
 
 class UserCreate(UserEdit):
@@ -72,6 +74,7 @@ from models.role import RoleResponse
 class UserResponse(OrmBase):
     username: str
     email: str
+    country: str
     birthdate: datetime = None
     created_at: datetime
     role: RoleResponse
