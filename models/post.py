@@ -11,8 +11,8 @@ class Post(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     text = db.Column(db.UnicodeText)
-    subject = db.Column(db.String(64), nullable=False, index=True)
-    done = db.Column(db.Boolean)
+    #subject = db.Column(db.String(64), nullable=False, index=True)
+    #done = db.Column(db.Boolean)
     schedule = db.Column(db.DateTime, default=datetime.utcnow)
     created = db.Column(db.DateTime, default=datetime.utcnow)
 
@@ -30,8 +30,8 @@ from models.user import UserResponseSimple
 
 class PostResponse(OrmBase):
     text: str
-    subject: str
-    done: bool
+    #subject: str
+    #done: bool
     schedule: datetime
     created: datetime
     author: UserResponseSimple

@@ -21,7 +21,6 @@ class User(db.Model):
     email = db.Column(db.String(128), nullable=False, index=True)
     birthdate = db.Column(db.DateTime)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
-
     role_id = db.Column(db.Integer, db.ForeignKey("role.id"))
 
     posts = db.relationship("Post", backref="author", lazy="dynamic")
